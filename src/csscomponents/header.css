@@ -1,0 +1,20 @@
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h1{
+    color: #fb0a0a;
+    font-size: 4rem;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+}
