@@ -7,14 +7,17 @@ import "../csscomponents/App.css" //se importa la hoja de estilos para la aplica
 //se importa el enrrutador de react-router-dom
 import AppRoutes from "./approuter"
 import { BrowserRouter } from "react-router-dom"
+import { useState } from "react"
 
 function App() {
+  const [cartCount, setCartCount] = useState(0)
+
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header cartCount={cartCount} />
         <main className="contenido">
-          <AppRoutes />
+          <AppRoutes onAddToCart={() => setCartCount((count) => count + 1)} />
         </main>
         <Footer />
       </div>

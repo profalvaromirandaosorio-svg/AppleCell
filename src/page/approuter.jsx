@@ -6,11 +6,11 @@ import Contactos from "./contactos.jsx"
 import Home from "./home.jsx"
 import Productos from "./productos.jsx"
 
-function AppRouter() {
+function AppRouter({ onAddToCart }) {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/productos" element={<Productos />} />
+            <Route path="/productos" element={<Productos onAddToCart={onAddToCart} />} />
             <Route path="/contacto" element={<Contactos />} />
         </Routes>
     )

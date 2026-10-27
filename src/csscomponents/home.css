@@ -1,5 +1,71 @@
-h1{
+.home {
+    padding: 48px 32px;
+}
+
+.home-about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.home-about-content {
+    max-width: 500px;
+}
+
+.home-about-content h1 {
     color: #333;
     font-size: 2.5rem;
-    text-align: center;
+    text-align: left;
+    margin: 0 0 24px;
+}
+
+.home-about-content p:not(.home-eyebrow) {
+    line-height: 1.7;
+    margin: 0 0 16px;
+}
+
+.home-eyebrow {
+    color: #7b2fc0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+}
+
+.home-about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-about-image img {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 16px;
+}
+
+@media (max-width: 700px) {
+    .home {
+        padding: 32px 16px;
+    }
+
+    .home-about {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 16px;
+    }
+
+    .home-about-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .home-about-image img {
+        max-width: 100%;
+    }
 }
