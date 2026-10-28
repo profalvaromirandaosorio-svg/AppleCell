@@ -1,6 +1,6 @@
 
 
-function Card({ title, description, image, onAddToCart }) {
+function Card({ title, description, image, price, onAddToCart }) {
   return (
     <article className="card">
       {image ? (
@@ -13,6 +13,7 @@ function Card({ title, description, image, onAddToCart }) {
       <div className="cardcont">
         <h2>{title}</h2>
         <p>{description}</p>
+        <p>{new Intl.NumberFormat("es-MX", { style: "currency", currency: "USD" }).format(price)}</p>
         <button className="card-button" type="button" onClick={onAddToCart}>
           Agregar al carrito
         </button>
