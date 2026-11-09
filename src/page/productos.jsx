@@ -1,3 +1,4 @@
+// Componentes, imágenes y estilos usados por la página de productos.
 import Card from "../components/card.jsx"
 import iphone13 from "../assets/iphone13.webp"
 import iphone14 from "../assets/iphone14.jpg"
@@ -8,6 +9,8 @@ import iphone18 from "../assets/iphone18.webp"
 import "../csscomponents/productos.css"
 import { useState } from "react"
 
+// Catálogo que se muestra en pantalla. Cada producto comparte esta estructura
+// para poder pasar sus datos a la tarjeta y, al agregarse, a la API del carrito.
 const produclista = [
     {
         id: "iphone17",
@@ -52,9 +55,12 @@ const produclista = [
     },
 ]
 
-function Productos({ onAddToCart }) {
+function Productos() {
+    // Guarda el resultado de la última operación para mostrarlo en la página.
     const [mensaje, setMensaje] = useState("")
 
+    // Envía el producto seleccionado al backend. La ruta POST /carrito espera
+    // nombre, precio e imagen; el backend guarda esos datos en la base de datos.
     async function agregarAlCarrito(producto) {
         setMensaje("")
 
@@ -62,6 +68,7 @@ function Productos({ onAddToCart }) {
             const response = await fetch("http://localhost:3002/carrito", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                // Convierte el producto del catálogo al formato requerido por la API.
                 body: JSON.stringify({
                     nombre: producto.title,
                     precio: producto.price,
@@ -70,17 +77,18 @@ function Productos({ onAddToCart }) {
             })
             const resultado = await response.json()
 
+            // Una respuesta HTTP fallida muestra el error recibido del backend.
             if (!response.ok) {
                 throw new Error(resultado.error || "No se pudo agregar el producto.")
             }
 
-            onAddToCart()
             setMensaje(`${producto.title} se agregó al carrito.`)
         } catch (error) {
             setMensaje(`Error al agregar ${producto.title}: ${error.message}`)
         }
     }
 
+    // Muestra las tarjetas del catálogo y conecta la acción de cada una con la API.
     return (
         <section className="productos">
             <h1>Productos</h1>

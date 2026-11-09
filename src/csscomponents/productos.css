@@ -4,7 +4,7 @@
 
 .produclista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 230px));
+  grid-template-columns: repeat(3, minmax(0, 230px));
   justify-content: center;
   gap: 18px;
   max-width: 1000px;

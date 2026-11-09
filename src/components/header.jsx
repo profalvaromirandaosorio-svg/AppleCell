@@ -2,8 +2,9 @@
 import "../csscomponents/header.css"
 import { NavLink } from "react-router-dom"
 
+import car from "../assets/car.png"
 import logo from "../assets/react.svg"
-function Header({ cartCount }) {
+function Header() {
   return (
     <header className="site-header">
         <div className="site-brand">
@@ -16,22 +17,8 @@ function Header({ cartCount }) {
             <NavLink className="header-link" to="/">Home</NavLink>
             <NavLink className="header-link" to="/productos">Productos</NavLink>
             <NavLink className="header-link" to="/contacto">Contacto</NavLink>
+            <img className="header-cart-image" src={car} alt="Carrito de compras" />
           </nav>
-          <div
-            className="header-cart"
-            role="img"
-            aria-label={`Carrito de compras: ${cartCount} productos`}
-            title={`Carrito de compras: ${cartCount} productos`}
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 9H6" />
-              <circle cx="10" cy="20" r="1" />
-              <circle cx="18" cy="20" r="1" />
-            </svg>
-            {cartCount > 0 && (
-              <span className="header-cart-count" aria-live="polite">{cartCount}</span>
-            )}
-          </div>
         </div>
     </header>
   )
